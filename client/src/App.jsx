@@ -1,5 +1,4 @@
 import {
-  BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
@@ -9,7 +8,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Interview from "./pages/Interview";
-import Resume from "./pages/Resume";
+import Resume from "./pages/resume";
 import History from "./pages/History";
 
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -18,76 +17,60 @@ function App() {
 
   return (
 
+    <Routes>
 
-      <Routes>
+      <Route
+        path="/"
+        element={<Home />}
+      />
 
-        {/* Home */}
+      <Route
+        path="/login"
+        element={<Login />}
+      />
 
-        <Route
-          path="/"
-          element={<Home />}
-        />
+      <Route
+        path="/signup"
+        element={<Signup />}
+      />
 
-        {/* Login */}
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
 
-        <Route
-          path="/login"
-          element={<Login />}
-        />
+      <Route
+        path="/interview"
+        element={
+          <ProtectedRoute>
+            <Interview />
+          </ProtectedRoute>
+        }
+      />
 
-        {/* Signup */}
+      <Route
+        path="/resume"
+        element={
+          <ProtectedRoute>
+            <Resume />
+          </ProtectedRoute>
+        }
+      />
 
-        <Route
-          path="/signup"
-          element={<Signup />}
-        />
+      <Route
+        path="/history"
+        element={
+          <ProtectedRoute>
+            <History />
+          </ProtectedRoute>
+        }
+      />
 
-        {/* Dashboard */}
-
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* Interview */}
-
-        <Route
-          path="/interview"
-          element={
-            <ProtectedRoute>
-              <Interview />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* Resume */}
-
-        <Route
-          path="/resume"
-          element={
-            <ProtectedRoute>
-              <Resume />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* History */}
-
-        <Route
-          path="/history"
-          element={
-            <ProtectedRoute>
-              <History />
-            </ProtectedRoute>
-          }
-        />
-
-      </Routes>
-
+    </Routes>
 
   );
 }
