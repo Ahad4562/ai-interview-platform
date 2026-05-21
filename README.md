@@ -46,5 +46,5 @@ An AI-powered mock interview platform built using modern web technologies and Op
 client/
 server/
 
-
+# Installation
 git clone https://github.com/Ahad4562/ai-interview-platform.git
