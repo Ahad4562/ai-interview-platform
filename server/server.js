@@ -18,7 +18,12 @@ const Interview =
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://ai-interview-platform-five-beta.vercel.app",
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 
